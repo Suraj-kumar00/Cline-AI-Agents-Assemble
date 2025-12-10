@@ -1,0 +1,15 @@
+services:
+  infraagent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: infraagent:latest
+    container_name: infraagent
+    volumes:
+      - ./output:/app/output
+      - ./input:/app/input
+    env_file:
+      - .env
+    working_dir: /app
+    stdin_open: true
+    tty: true
